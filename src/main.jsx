@@ -33,7 +33,7 @@ import TaskPage from "./components/Taskpage";
 import TaskDetailsPage from "./components/TaskDetailsPage";
 import TaskProgress from "./components/TaskProgress";
 import AssignTask from './components/AssignTask';
-import ProgressDetail from './components/progressDetail';
+import ProgressDetail from './components/ProgressDetail';
 import NotificationDashboard from "./components/NotificationDashboard";
 import EnhancedNotificationDashboard from "./components/EnhancedNotificationDashboard";
 import NotificationSystemTest from "./components/NotificationSystemTest";
