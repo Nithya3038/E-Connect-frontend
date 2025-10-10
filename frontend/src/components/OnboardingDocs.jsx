@@ -44,7 +44,7 @@ export default function EmployeeDashboard() {
     setLoading(true);
     try {
       const res = await axios.get(
-  `https://econnectbackend-production.up.railway.app/documents/assigned/${encodeURIComponent(userid)}`
+  `https://e-connect-backend-production-0979.up.railway.app/documents/assigned/${encodeURIComponent(userid)}`
       );
 
       const docsArray = Array.isArray(res.data.assigned_docs)
@@ -136,7 +136,7 @@ export default function EmployeeDashboard() {
     return (
       <div className="flex items-center gap-3 text-sm">
         <a
-          href={`https://econnectbackend-production.up.railway.app${doc.fileUrl}`}
+          href={`https://e-connect-backend-production-0979.up.railway.app${doc.fileUrl}`}
           target="_blank"
           rel="noreferrer"
           className="flex items-center gap-1 text-blue-600 hover:underline"
@@ -148,7 +148,7 @@ export default function EmployeeDashboard() {
           onClick={async () => {
             try {
               await axios.delete(
-                `https://econnectbackend-production.up.railway.app/documents/delete/${doc.fileId}`
+                `https://e-connect-backend-production-0979.up.railway.app/documents/delete/${doc.fileId}`
               );
               setAssignedDocs((prev) =>
                 prev.map((d) =>

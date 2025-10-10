@@ -21,7 +21,7 @@ export default function HRDocsReview() {
   const fetchUsers = async () => {
     try {
       setLoadingUsers(true);
-  const res = await axios.get("https://econnectbackend-production.up.railway.app/get_all_users");
+  const res = await axios.get("https://e-connect-backend-production-0979.up.railway.app/get_all_users");
       const normalizedUsers = res.data.map((u) => ({
         ...u,
         userId: u.id || u._id || u.userId,
@@ -37,7 +37,7 @@ export default function HRDocsReview() {
 
   const fetchAssignedDocs = async (userId) => {
     try {
-  const res = await axios.get(`https://econnectbackend-production.up.railway.app/documents/assigned/${userId}`);
+  const res = await axios.get(`https://e-connect-backend-production-0979.up.railway.app/documents/assigned/${userId}`);
       setAssignedDocs((prev) => ({ ...prev, [userId]: res.data }));
     } catch (err) {
       console.error(`❌ Error fetching docs for user ${userId}:`, err);
@@ -69,7 +69,7 @@ export default function HRDocsReview() {
         return updated;
       });
 
-  await axios.post("https://econnectbackend-production.up.railway.app/assign_docs", {
+  await axios.post("https://e-connect-backend-production-0979.up.railway.app/assign_docs", {
         userIds: selectedUsers,
         docName: docNameTrimmed,
       });
@@ -87,7 +87,7 @@ export default function HRDocsReview() {
 
   const handleVerify = async (userId, docName) => {
     try {
-  await axios.put("https://econnectbackend-production.up.railway.app/review_document", {
+  await axios.put("https://e-connect-backend-production-0979.up.railway.app/review_document", {
         userId,
         docName,
         status: "verified",
@@ -103,7 +103,7 @@ export default function HRDocsReview() {
   const handleDelete = async (userId, docName) => {
     try {
       if (!window.confirm(`Are you sure to delete "${docName}"?`)) return;
-  await axios.delete("https://econnectbackend-production.up.railway.app/assigned_doc_delete", {
+  await axios.delete("https://e-connect-backend-production-0979.up.railway.app/assigned_doc_delete", {
         data: { userId, docName },
       });
       setAssignedDocs((prev) => ({
@@ -275,7 +275,7 @@ export default function HRDocsReview() {
                     <td className="py-2 px-4 flex gap-2">
                       {doc.fileUrl && (
                         <a
-                          href={`https://econnectbackend-production.up.railway.app${doc.fileUrl}`}
+                          href={`https://e-connect-backend-production-0979.up.railway.app${doc.fileUrl}`}
                           target="_blank"
                           rel="noreferrer"
                           className="text-blue-600 text-sm underline flex items-center gap-1"
